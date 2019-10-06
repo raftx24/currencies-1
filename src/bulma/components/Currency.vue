@@ -6,10 +6,10 @@
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faDollarSign, faEuroSign } from '@fortawesome/free-solid-svg-icons';
+import { faDollarSign, faEuroSign, faPoundSign } from '@fortawesome/free-solid-svg-icons';
 import faLeuSign from './icons/faLeuSign';
 
-library.add(faLeuSign, faDollarSign, faEuroSign);
+library.add(faLeuSign, faDollarSign, faEuroSign, faPoundSign);
 
 export default {
     name: 'Currency',
