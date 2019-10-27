@@ -1,6 +1,6 @@
 <template>
     <div class="columns is-centered">
-        <div class="column is-one-third-desktop is-half-tablet">
+        <div class="column is-three-fifths-desktop is-two-thirds-tablet">
             <enso-form class="box form-box has-background-light raises-on-hover"/>
         </div>
     </div>
@@ -15,6 +15,3 @@ export default {
     components: { EnsoForm },
 };
 </script>
-
-<style lang="scss">
-</style>

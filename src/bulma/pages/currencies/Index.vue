@@ -8,7 +8,6 @@
 </template>
 
 <script>
-
 import { EnsoTable } from '@enso-ui/tables/bulma';
 import Currency from '../../components/Currency.vue';
 
@@ -18,6 +17,3 @@ export default {
     components: { EnsoTable, Currency },
 };
 </script>
-
-<style lang="scss">
-</style>

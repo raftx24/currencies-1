@@ -6,6 +6,6 @@ export default {
     component: RateIndex,
     meta: {
         breadcrumb: 'index',
-        title: 'Rates',
+        title: 'Exchange Rates',
     },
 };
