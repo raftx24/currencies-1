@@ -1,24 +1,26 @@
 <template>
     <a class="button is-warning"
         @click="next">
-        <currency :symbol="currency.symbol"
-            v-if="currency"/>
+        <span class="is-bold">
+            {{ currency.symbol }}
+        </span>
     </a>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import Currency from './Currency.vue';
 
 export default {
     name: 'Currencies',
-
-    components: { Currency },
 
     props: {
         value: {
             type: Number,
             default: null,
+        },
+        readonly: {
+            type: Boolean,
+            default: false,
         },
     },
 
@@ -44,6 +46,10 @@ export default {
 
     methods: {
         next() {
+            if (this.readonly) {
+                return;
+            }
+
             const index = this.index === this.currencies.length - 1
                 ? 0
                 : this.index + 1;
