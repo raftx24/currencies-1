@@ -1,7 +1,8 @@
 <template>
     <a class="button"
         v-tooltip="tooltip ? currency.shortName : null"
-        @click="next">
+        @click="next"
+        v-if="currency">
         <span class="is-bold"
             v-if="symbol">
             {{ currency.symbol }}
@@ -48,7 +49,8 @@ export default {
             return this.currencies.find(({ isDefault }) => isDefault);
         },
         currency() {
-            return this.currencies.find(({ id }) => id === this.value);
+            return this.currencies
+                && this.currencies.find(({ id }) => id === this.value);
         },
         index() {
             return this.currencies.findIndex(({ id }) => id === this.value);
