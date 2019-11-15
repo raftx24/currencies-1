@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper">
-        <div class="columns">
+        <div class="columns"
+            v-if="ready">
             <div class="column">
                 <enso-select-filter class="box raises-on-hover"
                     source="administration.currencies.options"
@@ -27,15 +28,16 @@
             </div>
         </div>
         <enso-table class="box is-paddingless raises-on-hover"
-            id="rates"
+            id="exchangeRates"
             :filters="filters"
             :intervals="intervals"
             @reset="$refs.filterState.reset()"/>
-        <filter-state :api-version="1"
-            name="exchange-rates"
+        <filter-state name="exchangeRateFilterState"
+            :api-version="apiVersion"
             :filters="filters"
             :intervals="intervals"
             :params="params"
+            @ready="ready = true"
             ref="filterState"/>
     </div>
 </template>
@@ -49,14 +51,18 @@ import { EnsoTable } from '@enso-ui/tables/bulma';
 export default {
     name: 'Index',
 
-    components: { EnsoDateFilter, EnsoSelectFilter, FilterState, EnsoTable },
+    components: {
+        EnsoDateFilter, EnsoSelectFilter, FilterState, EnsoTable,
+    },
 
     inject: ['i18n'],
 
     data: () => ({
+        ready: false,
+        apiVersion: 1.0,
         filters: {
-            fromCurrencies: { id : null },
-            toCurrencies: { id: null }
+            fromCurrencies: { id: null },
+            toCurrencies: { id: null },
         },
         intervals: {
             exchange_rates: {
