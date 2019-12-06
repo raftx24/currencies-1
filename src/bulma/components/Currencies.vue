@@ -1,6 +1,6 @@
 <template>
     <a class="button"
-        v-tooltip="tooltip ? currency.shortName : null"
+        v-tooltip="tooltip ? currency.code : null"
         @click="next"
         v-if="currency">
         <span class="is-bold"
@@ -9,7 +9,7 @@
         </span>
         <span class="is-bold"
             v-else>
-            {{ currency.shortName }}
+            {{ currency.code }}
         </span>
     </a>
 </template>

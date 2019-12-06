@@ -5,14 +5,14 @@
             <div class="column">
                 <enso-select-filter class="box raises-on-hover"
                     source="administration.currencies.options"
-                    label="shortName"
+                    label="code"
                     :name="i18n('From')"
                     v-model="filters.fromCurrencies.id"/>
             </div>
             <div class="column">
                 <enso-select-filter class="box raises-on-hover"
                     source="administration.currencies.options"
-                    label="shortName"
+                    label="code"
                     :name="i18n('To')"
                     v-model="filters.toCurrencies.id"/>
             </div>
